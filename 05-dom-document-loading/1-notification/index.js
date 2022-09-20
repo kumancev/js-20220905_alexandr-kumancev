@@ -58,14 +58,4 @@ export default class NotificationMessage {
     this.element = null;
     this.duration = 0;
   }
-
-  // <div class="notification success" style="--value:20s">
-  //   <div class="timer"></div>
-  //   <div class="inner-wrapper">
-  //     <div class="notification-header">success</div>
-  //     <div class="notification-body">
-  //       Hello world
-  //     </div>
-  //   </div>
-  // </div>
 }
