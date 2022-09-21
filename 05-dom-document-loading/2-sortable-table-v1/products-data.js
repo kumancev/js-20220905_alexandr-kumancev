@@ -1,4 +1,4 @@
-export default [
+ export default [
   {
     "id": "soska-(pustyshka)-nuk-10729357",
     "title": "Соска (пустышка) NUK 10729357",
