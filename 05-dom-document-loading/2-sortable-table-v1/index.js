@@ -32,7 +32,9 @@ export default class SortableTable {
   }
 
   sort(field, direction = "asc") {
-    Array.from(this.subElements.header.children).forEach((column) => {
+    Array.from(
+      this.element.querySelectorAll(".sortable-table__cell[data-id]")
+    ).forEach((column) => {
       column.removeAttribute("data-order");
       if (column.dataset.id === field) {
         column.dataset.order = direction;
@@ -41,7 +43,7 @@ export default class SortableTable {
 
     const sortType = this.headerConfig.filter((header) => header.id == field)[0]
       .sortType;
-    let comparator =
+    const comparator =
       sortType === "number" ? this.numbersComparator : this.stringsComparator;
 
     this.data.sort((row1, row2) => {
@@ -53,7 +55,7 @@ export default class SortableTable {
   }
 
   stringsComparator(a, b) {
-    return a.localeCompare(b, "ru", { caseFirst: "upper" });
+    return a.localeCompare(b, ["ru", "en"], { caseFirst: "upper" });
   }
 
   numbersComparator(a, b) {
