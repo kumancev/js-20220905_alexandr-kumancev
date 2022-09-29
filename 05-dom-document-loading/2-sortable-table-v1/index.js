@@ -32,14 +32,16 @@ export default class SortableTable {
   }
 
   sort(field, direction = "asc") {
-    Array.from(
-      this.element.querySelectorAll(".sortable-table__cell[data-id]")
-    ).forEach((column) => {
-      column.removeAttribute("data-order");
-      if (column.dataset.id === field) {
-        column.dataset.order = direction;
+    const cells = this.element.querySelectorAll(
+      ".sortable-table__cell[data-id]"
+    );
+
+    for (const item of cells) {
+      item.removeAttribute("data-order");
+      if (item.dataset.id === field) {
+        item.dataset.order = direction;
       }
-    });
+    }
 
     const sortType = this.headerConfig.filter((header) => header.id == field)[0]
       .sortType;

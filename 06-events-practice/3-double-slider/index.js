@@ -6,14 +6,13 @@ export default class DoubleSlider {
     min = 0,
     max = 100,
     formatValue = value => "$" + value,
-    selected,
+    selected = {from: min, to: max},
   } = {}) {
     this.min = min;
     this.max = max;
     this.formatValue = formatValue;
-    this.selected = selected ?? { from: min, to: max };
+    this.selected = selected;
     this.width = this.max - this.min;
-
     this.render();
   }
 

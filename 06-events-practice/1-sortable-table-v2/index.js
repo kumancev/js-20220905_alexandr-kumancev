@@ -1,10 +1,4 @@
 export default class SortableTable {
-  // constructor(headersConfig, {
-  //   data = [],
-  //   sorted = {}
-  // } = {}) {
-
-  // }
     element;
     subElements = {};
   
@@ -77,9 +71,8 @@ export default class SortableTable {
       return this.header.map(({id, template}) => {return {id, template};}).map(({id, template}) => {
         if (template) {
           return template(tableCell[id]);
-        } else {
-          return `<div class="sortable-table__cell">${tableCell[id]}</div>`;
         }
+        return `<div class="sortable-table__cell">${tableCell[id]}</div>`;
       }).join('');
     }
   

@@ -16,36 +16,36 @@ class Tooltip {
 
     this.element.style.left = `${left}px`;
     this.element.style.top = `${top}px`;
-  }
+  };
 
   showTooltip = (event) => {
     const tooltipText = event.target.dataset.tooltip;
     if (tooltipText) {
       this.render(tooltipText);
-      document.body.addEventListener('pointermove', this.tooltipPosition);
+      document.body.addEventListener("pointermove", this.tooltipPosition);
     }
-  }
+  };
 
   hideTooltip = () => {
     Tooltip.#onlyInstance.element.remove();
-    document.body.removeEventListener('pointermove', this.tooltipPosition);
-  }
+    document.body.removeEventListener("pointermove", this.tooltipPosition);
+  };
 
-  initialize () {
-    document.body.addEventListener('pointerover', this.showTooltip);
-    document.body.addEventListener('pointerout', this.hideTooltip);
+  initialize() {
+    document.body.addEventListener("pointerover", this.showTooltip);
+    document.body.addEventListener("pointerout", this.hideTooltip);
   }
 
   render(tooltipText) {
-    this.element = document.createElement('div');
-    this.element.className = 'tooltip';
+    this.element = document.createElement("div");
+    this.element.className = "tooltip";
     this.element.innerHTML = tooltipText;
     document.body.append(this.element);
   }
 
   remove() {
-    document.body.removeEventListener('pointerover', this.showTooltip);
-    document.body.removeEventListener('pointerout', this.hideTooltip);
+    document.body.removeEventListener("pointerover", this.showTooltip);
+    document.body.removeEventListener("pointerout", this.hideTooltip);
     this.hideTooltip();
   }
   destroy() {
