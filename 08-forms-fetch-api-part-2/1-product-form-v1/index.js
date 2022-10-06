@@ -112,7 +112,7 @@ export default class ProductForm {
 
     this.renderForm();
     
-    if(this.formData) {
+    if (this.formData) {
       this.setFormValue();
       this.initEventListeners();
     }
@@ -194,8 +194,8 @@ export default class ProductForm {
 
     const select = wrapper.firstElementChild;
 
-    for(const category of this.categories) {
-      for(const item of category.subcategories) {
+    for (const category of this.categories) {
+      for (const item of category.subcategories) {
         select.append(new Option(`${category.title} > ${item.title}`, item.id));
       }
     }
