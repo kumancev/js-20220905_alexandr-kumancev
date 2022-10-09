@@ -39,14 +39,9 @@ export default class SortableList {
       let droppableBelow = elemBelow.closest("li");
       if (this.currentDroppable !== droppableBelow) {
 
-        // if (this.currentDroppable) {
-        //   leaveDroppable(this.currentDroppable);
-        // }
-
         this.currentDroppable = droppableBelow;
 
         if (this.currentDroppable) {
-          // enterDroppable(this.currentDroppable);
           if (placeholder) {
             if (event.movementY > 0) {
               this.currentDroppable.after(placeholder);
@@ -80,14 +75,6 @@ export default class SortableList {
       image.style.visibility = null;
       placeholder.remove();
     };
-
-    // function enterDroppable(elem) {
-    //   elem.style.background = 'pink';
-    // }
-    //
-    // function leaveDroppable(elem) {
-    //   elem.style.background = '';
-    // }
 
     image.ondragstart = function () {
       return false;

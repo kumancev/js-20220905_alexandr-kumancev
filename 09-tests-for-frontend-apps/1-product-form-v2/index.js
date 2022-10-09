@@ -27,12 +27,12 @@ export default class ProductForm {
     fileInput.addEventListener("change", this.uploadImageHandler);
   }
 
-  saveEventHandler = (e) => {
-    e.preventDefault();
-    this.save(e);
+  saveEventHandler = (event) => {
+    event.preventDefault();
+    this.save(event);
   };
 
-  openFileUploadDialogHandler = (e) => {
+  openFileUploadDialogHandler = (event) => {
     this.subElements.fileInput.click();
   };
 
@@ -44,7 +44,7 @@ export default class ProductForm {
     this.element.dispatchEvent(event);
   }
 
-  uploadImageHandler = async (e) => {
+  uploadImageHandler = async (event) => {
     const file = this.subElements.fileInput.files[0];
     if (!file) {
       return;
@@ -149,10 +149,10 @@ export default class ProductForm {
         },
         body: JSON.stringify(parsedFormData),
       });
-    } catch (e) {
-      console.error("save Error:", e);
+    } catch (error) {
+      console.error("save Error:", error);
     }
-
+ 
     this.dispatchEvent(this.productId);
 
     return data;
