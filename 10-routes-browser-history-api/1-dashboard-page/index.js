@@ -11,7 +11,7 @@ export default class Page {
   apiPath = `${BACKEND_URL}api/dashboard`;
   components = [];
 
-  onDateSelection = async (event) => {
+  onDateSelection = (event) => {
     const { from, to } = event.detail;
     const { id, order } = this.table.sorted;
 
@@ -19,7 +19,7 @@ export default class Page {
       ...this.charts.map((chart) => chart.update(from, to)),
       this.table.loadData(id, order, from, to),
     ];
-    await Promise.all(promises);
+    // // await Promise.all(promises);
   };
 
   initEventListeners() {
@@ -77,7 +77,7 @@ export default class Page {
       },
     });
     this.charts = [ordersChart, salesChart, customersChart];
-
+ 
     this.subElements.ordersChart.append(ordersChart.element);
     this.subElements.salesChart.append(salesChart.element);
     this.subElements.customersChart.append(customersChart.element);
